@@ -1,0 +1,42 @@
+#include <iostream>
+#include<conio.h>
+#include <iomanip>
+
+using namespace std;
+
+int main(){
+    double payrate, before, after, schoolamount, bondsamount;
+    double clothesamount, parentsbondsamount, hoursworked;
+    
+    const double tax= 0.14;
+    const double clothes= 0.10;
+    const double school= 0.01;
+    const double savings= 0.25;
+    const double parents= 0.50;
+    
+    cout << "How many hours did you work: ";
+    cin >> hoursworked;
+    
+    cout << "What was the hourly rate: $";
+    cin >> payrate;
+    
+    before = hoursworked * payrate;
+    after = before *= tax;
+    clothesamount = after * clothes;
+    schoolamount = after * school;
+    after -= (clothesamount + schoolamount);
+    bondsamount = after * savings;
+    parentsbondsamount = bondsamount * parents;
+    
+    cout << fixed << showpoint << setprecision(2);
+    
+    cout << "Income Before Tax: $" << before << endl;
+    cout << "Income After Tax: $" << after << endl;
+    cout << "Clothes and other Accesories : $" << clothesamount << endl;
+    cout << "School Supplies: $" << schoolamount << endl;
+    cout << "Savings Bonds: $" << bondsamount << endl;
+    cout << "Parents Contribution: $" <<parentsbondsamount << endl;
+    
+    _getch();	
+    return 0;
+}
